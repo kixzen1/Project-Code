@@ -15,10 +15,12 @@ public class PlayerMovement : Monobehaviour
             StopRun()
     END VOID
 
+
     VOID WallRunIn():
         IF D is pressed and on right wall THEN StartRun()
         IF A is pressed and on left wall THEN StartRun()
     END VOID
+
 
     VOID StartRun():
         set RigidBody's (rb) gravity to false
@@ -37,6 +39,7 @@ public class PlayerMovement : Monobehaviour
         END IF
 
     END VOID
+
 
     VOID StopRun():
         set rb gravity = true
@@ -92,15 +95,18 @@ public class PlayerMovement : Monobehaviour
         rb = GetComponent <RigidBody>()
     END VOID
 
+
     VOID Start():
         set playerScale to the localScal of the transformed asset
         lock the cursor
         hide the cursor
     END VOID
 
+
     VOID FixedUpdate():
         Movement()
     END VOID
+
 
     VOID Update():
         MyInput()
@@ -138,6 +144,7 @@ public class PlayerMovement : Monobehaviour
             END IF
         END IF
     END VOID
+
 
     VOID StopCrouch():
         set the localScale to playerScale
@@ -202,6 +209,7 @@ public class PlayerMovement : Monobehaviour
             orientation.transform.right * x * moveSpeed * Time.deltaTime * multiplier
         )
     END VOID
+
 
     VOID CounterMovement(parameters: float x ,float y, Vector2 mag):
         
@@ -280,6 +288,7 @@ public class PlayerMovement : Monobehaviour
         END IF
     END VOID
 
+
     VOID ResetJump():
         player is NOT ready to jump
     END VOID
@@ -334,6 +343,7 @@ public class PlayerMovement : Monobehaviour
 
     END VOID
 
+
     VECTOR2 FindVelRelativeToLook():
         float lookAngle = orientation.transform.eulerAngles.y
         float moveAngle = quotient value of the tangent of (velocity of x, velocity of z) converted from radians to degrees
@@ -348,12 +358,16 @@ public class PlayerMovement : Monobehaviour
         return new Vector2(xMag, yMag)
     END FUNCTION
 
+----------------------------------------------------------------------------------------------
+
     BOOL IsFloor(Vector3 v):
         float angle = Vector3.Angle(upforce of Vector3, v)
         return angle < maxSlopeAngle
     END FUNCTION
 
+
     private bool cancellingGrounded
+
 
     VOID OnCollisionStay(Collision other):
         int layer = other.gameObject.layer
@@ -380,6 +394,7 @@ public class PlayerMovement : Monobehaviour
             Invoke(nameof(StopGrounded), time.deltatime * delay)
         END IF
     END VOID
+
 
     VOID StopGrounded()
         grouded = false
