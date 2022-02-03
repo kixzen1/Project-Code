@@ -56,8 +56,30 @@ public class GrapplingGun : Monobehaviour
     set the position count of lr to 0
     destroy the joint
   END VOID
-      
   
+  private Vector3 currentGrapplePosition
+  
+  VOID DrawRope():
+    IF NOT grappling THEN:
+      do not draw the rope
+    END IF
+    
+    current grapple position = Vector3.Lerp(current grapple position, grapplePoint
+                                            , Time.deltaTime * 8f)
+    set position 0 of lr to position of gunTip
+    set position 1 of lr to currentGrapplePosition
+ END VOID
+ 
+ 
+  BOOL isGrappling:
+    return joint != null
+  END FUCNTION
+    
+    
+  VECTOR3 GetGrapplePoint():
+    return position of grapplePoint
+  END VOID
+END CLASS
   
   
   
