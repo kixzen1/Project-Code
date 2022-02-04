@@ -224,12 +224,14 @@ using UnityEngine;
 218        END IF
 219        // ACTUAL COUNTER-MOVEMENT
 220
-221       IF the absoulte value of the magnitude of x > threshold && the absolute value of x < 0.05f || (magnitude of x < -threshold && x > 0) || (magnitude of x > threshold && 222 x < 0) THEN:
+221       IF the absoulte value of the magnitude of x > threshold && the absolute value of x < 0.05f || 
+222          (magnitude of x < -threshold && x > 0) || (magnitude of x > threshold && 222 x < 0) THEN:
 223            add (moveSpeed * right force * Time.deltaTime * -magnitude of x * counterMovement) force to rb
 224        END IF
 225
-226        IF the absolute value of the magnitude of y > threshold && the absolute value of y < 0.05f || (magnitude of y < -threshold && y > 0) || (magnitude of y > threshold 227 && y < 0) THEN:
-228            add (moveSpeed * right force * time.deltaTime * -magnitude of y * counterMovement) force to rb
+226        IF the absolute value of the magnitude of y > threshold && the absolute value of y < 0.05f || 
+227           (magnitude of y < -threshold && y > 0) || (magnitude of y > threshold 227 && y < 0) THEN:
+228             add (moveSpeed * right force * time.deltaTime * -magnitude of y * counterMovement) force to rb
 229        END IF
 230
 231        IF SquareRoot of the (velocity of x)^2 + (velocity of z)^2 > maxSpeed THEN:
@@ -346,7 +348,8 @@ using UnityEngine;
 342
 343    VECTOR2 FindVelRelativeToLook():
 344        float lookAngle = orientation.transform.eulerAngles.y
-345        float moveAngle = quotient value of the tangent of (velocity of x, velocity of z) converted from radians to degrees
+345        float moveAngle = quotient value of the tangent of (velocity of x, velocity of z) 
+                             converted from radians to degrees
 346
 347        float u = the change in angle (lookAngle, moveAngle)
 348        float v = 90 - u
