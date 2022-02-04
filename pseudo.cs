@@ -36,7 +36,8 @@ public class GrapplingGun : Monobehaviour
   // Call whenever grapple is started
   VOID StartGrapple():
     RaycastHit hit;
-    IF Physics.Raycast(camera.position, camera.forwards, out hit, maxdistance, whatIsGrappleable) THEN:
+    IF Physics.Raycast(camera.position, camera.forwards, 
+                       out hit, maxdistance, whatIsGrappleable) THEN:
       grapplePoint = hit.point
       joint = Addcomponent<SpringJoint> to player.gameObject
       set the auto connected anchoring of joint to false
@@ -64,8 +65,8 @@ public class GrapplingGun : Monobehaviour
       do not draw the rope
     END IF
     
-    current grapple position = Vector3.Lerp(current grapple position, grapplePoint
-                                            , Time.deltaTime * 8f)
+    current grapple position = Vector3.Lerp(current grapple position,
+                                            grapplePoint, Time.deltaTime * 8f)
     set position 0 of lr to position of gunTip
     set position 1 of lr to currentGrapplePosition
  END VOID
